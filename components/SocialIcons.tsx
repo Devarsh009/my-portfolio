@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const iconData = [
   { Icon: FaGithub, url: 'https://github.com/Devarsh009' },
-  { Icon: FaLinkedin, url: 'https://linkedin.com/in/Devarsh009' },
+  { Icon: FaLinkedin, url: 'https://www.linkedin.com/in/devarsh-radadia-79220b251' },
   { Icon: FaEnvelope, url: 'mailto:devarshradadia2580@gmail.com' },
 ];
 

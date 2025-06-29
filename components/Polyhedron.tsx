@@ -1,33 +1,26 @@
-'use client';
-
-import { useFrame } from '@react-three/fiber';
-import { motion } from 'framer-motion-3d';
-import { useRef } from 'react';
-import * as THREE from 'three';
+'use client'
+import { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
+import { Group } from 'three'
+import PolyhedronMesh from './PolyhedronMesh'
 
 type Props = {
-  position: [number, number, number];
-  color: string;
-};
+  position: [number, number, number]
+}
 
-export default function Polyhedron({ position, color }: Props) {
-  // Use a type assertion to satisfy framer-motion-3d's ref expectations
-  const meshRef = useRef<THREE.Mesh>(null);
+export default function Polyhedron({ position }: Props) {
+  const groupRef = useRef<Group>(null)
 
   useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.01;
-      meshRef.current.rotation.x += 0.005;
+    if (groupRef.current) {
+      groupRef.current.rotation.x += 0.005
+      groupRef.current.rotation.y += 0.005
     }
-  });
+  })
 
   return (
-    <motion.mesh
-      ref={meshRef as React.MutableRefObject<any>} // Type assertion for compatibility
-      position={position}
-    >
-      <dodecahedronGeometry args={[1.5, 0]} />
-      <meshStandardMaterial color={color} flatShading />
-    </motion.mesh>
-  );
+    <group position={position} ref={groupRef}>
+      <PolyhedronMesh />
+    </group>
+  )
 }
