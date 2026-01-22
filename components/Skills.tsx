@@ -1,35 +1,56 @@
 'use client';
 import { motion } from 'framer-motion';
-
-const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Tailwind CSS', 'Node.js', 'MongoDB'];
+import { skillsMatrix } from '@/lib/content';
+import Badge from './ui/Badge';
+import Separator from './ui/Separator';
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-16 md:py-20 bg-black text-white">
-      <div className="container mx-auto px-4">
-        <motion.h2 
-          initial={{ opacity: 0, y: 50 }}
+    <section id="skills" className="section-shell">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex flex-wrap items-center gap-4">
+          <Badge>Skills</Badge>
+          <span className="text-xs uppercase tracking-[0.3em] text-white/40">ML · Data · Backend</span>
+        </div>
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-bold text-center mb-10 md:mb-16"
+          className="mt-6 text-3xl font-semibold text-white sm:text-5xl"
         >
-          Skills
+          Depth across AI, data engineering, and scalable backend systems.
         </motion.h2>
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-          {skills.map((skill, i) => (
-            <motion.span
-              key={i}
-              className="px-4 py-2 bg-white border rounded-full text-sm md:text-base shadow-sm cursor-default text-black mb-2"
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: 'spring', stiffness: 120, delay: i * 0.1 }}
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          {skillsMatrix.map((group, groupIndex) => (
+            <motion.div
+              key={group.group}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: groupIndex * 0.1 }}
+              className="glass-panel rounded-3xl p-6"
             >
-              {skill}
-            </motion.span>
+              <div className="text-xs uppercase tracking-[0.3em] text-white/50">{group.group}</div>
+              <div className="mt-6 space-y-4">
+                {group.skills.map((skill) => (
+                  <div key={skill.name}>
+                    <div className="flex items-center justify-between text-sm text-white/70">
+                      <span>{skill.name}</span>
+                      <span>{skill.level}%</span>
+                    </div>
+                    <div className="mt-2 h-2 w-full rounded-full bg-white/10">
+                      <div
+                        className="h-2 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400"
+                        style={{ width: `${skill.level}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
+      <Separator />
     </section>
   );
 }

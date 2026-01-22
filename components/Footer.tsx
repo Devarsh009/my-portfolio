@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="py-6 text-center text-gray-500">
-      © {new Date().getFullYear()} Devarsh. Built with Next.js & Tailwind CSS.
+    <footer className="border-t border-white/10 py-10 text-center text-sm text-white/50">
+      © {new Date().getFullYear()} Devarsh Radadia · Built for AI systems, ML platforms, and product engineering.
     </footer>
   );
 }

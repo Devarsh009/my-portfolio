@@ -11,7 +11,7 @@ interface ThreeSceneProps {
 export default function ThreeScene({ mouse, setMouse }: ThreeSceneProps) {
   const [hovered, setHovered] = useState(false)
   return (
-    <div className="w-full h-full">
+    <div className="absolute inset-0">
       <Canvas
         camera={{ position: [0, 0, 10], fov: 60 }}
         gl={{ antialias: true, alpha: true }}

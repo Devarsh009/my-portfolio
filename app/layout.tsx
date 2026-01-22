@@ -1,38 +1,38 @@
 // app/layout.tsx
-import "./globals.css"; // ✅ Corrected path
+import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Devarsh Radadia | Portfolio",
+  title: "Devarsh Radadia | AI/ML Engineer",
   description:
-    "Hi, I'm Devarsh Radadia — a passionate full-stack developer building modern web experiences.",
+    "AI/ML engineer focused on LLM systems, RAG pipelines, and backend ML platforms.",
   icons: {
     icon: "/favicon.ico",
   },
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://devarsh.tech"),
   openGraph: {
-    title: "Devarsh Radadia | Portfolio",
+    title: "Devarsh Radadia | AI/ML Engineer",
     description:
-      "A frontend-focused developer passionate about building elegant web apps.",
-    url: "https://yourdomain.com",
+      "Production-grade AI systems, RAG pipelines, and ML engineering for modern teams.",
+    url: "https://devarsh.tech",
     siteName: "Devarsh Radadia",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Devarsh Portfolio",
+        alt: "Devarsh Radadia — AI/ML Engineer",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Devarsh Radadia | Portfolio",
-    description: "Explore projects and skills of Devarsh Radadia.",
+    title: "Devarsh Radadia | AI/ML Engineer",
+    description: "AI systems, RAG pipelines, and ML backend engineering.",
     images: ["/og-image.png"],
   },
 };

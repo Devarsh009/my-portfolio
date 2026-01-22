@@ -1,50 +1,26 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 
-const navItems = ['home', 'about', 'projects', 'skills', 'contact'];
-
-// Add smooth scrolling globally
-if (typeof window !== 'undefined') {
-  document.documentElement.style.scrollBehavior = 'smooth';
-}
-
-function getActiveSection() {
-  if (typeof window === 'undefined') return '';
-  const scrollY = window.scrollY;
-  let active = navItems[0];
-  for (let i = 0; i < navItems.length; i++) {
-    const el = document.getElementById(navItems[i]);
-    if (el) {
-      const offsetTop = el.offsetTop - 80; // account for navbar height
-      const nextEl = navItems[i + 1] ? document.getElementById(navItems[i + 1]) : null;
-      const nextOffset = nextEl ? nextEl.offsetTop - 80 : Infinity;
-      if (scrollY >= offsetTop && scrollY < nextOffset) {
-        active = navItems[i];
-        break;
-      }
-    }
-  }
-  return active;
-}
+const navItems = ['home', 'about', 'skills', 'projects', 'research', 'experience', 'resume', 'contact'];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState('home');
-  const navOffset = 100; // adjust if your navbar height changes
+  const navOffset = 120;
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY + navOffset + 1;
+      const scrollY = window.scrollY + navOffset;
       let current = 'home';
+
       for (const id of navItems) {
         const el = document.getElementById(id);
         if (el && el.offsetTop <= scrollY) {
           current = id;
         }
       }
-      // Special case: if at bottom, set to contact
+
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
         current = 'contact';
       }
@@ -63,44 +39,54 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      initial={{ y: -100, opacity: 0 }}
+      initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="sticky top-0 left-0 w-full z-50 bg-black/40 shadow-lg"
+      className="sticky top-0 left-0 z-50 w-full"
     >
-      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <span className="font-extrabold text-2xl tracking-tight text-white select-none">DR</span>
-        <div className="hidden md:flex gap-8">
-          {navItems.map(item => (
-            <a
-              key={item}
-              href={`#${item}`}
-              className={`capitalize hover:text-blue-400 text-white transition-colors duration-200 ${active === item ? 'border-b-2 border-blue-400 pb-1' : ''}`}
-              onClick={() => handleNavClick(item)}
-            >
-              {item}
-            </a>
-          ))}
-        </div>
-        <button
-          className="md:hidden focus:outline-none"
-          onClick={() => setOpen(!open)}
-        >
-          <svg
-            className="w-6 h-6 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="mt-4 flex items-center justify-between rounded-full px-5 py-3 glass-panel">
+          <div className="flex items-center gap-3">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-cyan-400 text-sm font-semibold">DR</span>
+            <div className="leading-tight">
+              <div className="text-sm font-semibold text-white">Devarsh Radadia</div>
+              <div className="text-xs text-white/60">AI/ML Engineer</div>
+            </div>
+          </div>
+          <div className="hidden xl:flex items-center gap-6 text-xs uppercase tracking-[0.2em] text-white/60">
+            {navItems.map(item => (
+              <a
+                key={item}
+                href={`#${item}`}
+                className={`transition-colors duration-200 ${active === item ? 'text-white' : 'hover:text-white'}`}
+                onClick={() => handleNavClick(item)}
+                aria-current={active === item ? 'page' : undefined}
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+          <button
+            className="xl:hidden rounded-full border border-white/10 p-2 text-white/80 hover:text-white"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle navigation"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d={open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
-            />
-          </svg>
-        </button>
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+              />
+            </svg>
+          </button>
+        </div>
       </div>
       <AnimatePresence>
         {open && (
@@ -109,19 +95,24 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed top-0 right-0 w-3/4 h-screen bg-black/90 shadow-lg p-6 z-40 md:hidden"
+            className="fixed top-0 right-0 z-40 h-screen w-4/5 max-w-sm bg-[#0b0b12] shadow-2xl xl:hidden"
           >
-            <div className="flex flex-col gap-8 mt-12">
+            <div className="flex h-full flex-col gap-6 px-6 py-10">
+              <div className="text-xs uppercase tracking-[0.3em] text-white/50">Navigation</div>
               {navItems.map(item => (
                 <a
                   key={item}
                   href={`#${item}`}
-                  className={`capitalize text-lg hover:text-blue-400 text-white transition-colors duration-200 ${active === item ? 'border-b-2 border-blue-400 pb-1' : ''}`}
+                  className={`text-2xl font-semibold capitalize ${active === item ? 'text-white' : 'text-white/60'}`}
                   onClick={() => { setOpen(false); handleNavClick(item); }}
+                  aria-current={active === item ? 'page' : undefined}
                 >
                   {item}
                 </a>
               ))}
+              <div className="mt-auto rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/70">
+                Building AI systems, RAG pipelines, and ML platforms.
+              </div>
             </div>
           </motion.div>
         )}
