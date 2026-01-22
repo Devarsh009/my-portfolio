@@ -6,8 +6,9 @@ export function generateStaticParams() {
   return researchPosts.map((post) => ({ slug: post.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = researchPosts.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = researchPosts.find((item) => item.slug === slug);
   if (!post) return {};
   return {
     title: `${post.title} | Research`,
@@ -15,8 +16,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function ResearchDetail({ params }: { params: { slug: string } }) {
-  const post = researchPosts.find((item) => item.slug === params.slug);
+export default async function ResearchDetail({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = researchPosts.find((item) => item.slug === slug);
   if (!post) return notFound();
 
   return (
