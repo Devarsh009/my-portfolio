@@ -47,7 +47,7 @@ export default function About() {
               </li>
               <li>
                 <div className="text-white">B.E. Computer Engineering</div>
-                <div className="text-white/50">GTU · CGPA 8.70</div>
+                <div className="text-white/50">GTU · CGPA 8.8</div>
               </li>
             </ol>
           </div>

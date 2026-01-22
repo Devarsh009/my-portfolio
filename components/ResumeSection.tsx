@@ -31,7 +31,7 @@ export default function ResumeSection() {
             <div className="mt-4 space-y-3">
               <div>
                 <div className="text-white">Education</div>
-                <div>B.E. Computer Engineering, GTU · CGPA 8.70</div>
+                <div>B.E. Computer Engineering, GTU · CGPA 8.8</div>
               </div>
               <div>
                 <div className="text-white">Core Focus</div>
