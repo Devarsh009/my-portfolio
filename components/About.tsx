@@ -38,7 +38,7 @@ export default function About() {
             <div className="text-xs uppercase tracking-[0.3em] text-white/50">Timeline</div>
             <ol className="mt-6 space-y-5 text-sm text-white/70">
               <li>
-                <div className="text-white">2024 · AI Engineering Intern</div>
+                <div className="text-white">Dec 2025 – Present · AI Engineering Intern</div>
                 <div className="text-white/50">Neujin Solutions</div>
               </li>
               <li>

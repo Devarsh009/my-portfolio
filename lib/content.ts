@@ -274,7 +274,7 @@ export const experience = [
   {
     role: "AI Engineering Intern",
     company: "Neujin Solutions",
-    period: "2024",
+    period: "Dec 2025 – Present",
     highlights: [
       "Built FDA MAUDE ETL pipelines with retries, validation, and structured logging.",
       "Designed RAG pipelines to answer compliance and safety questions with citations.",
