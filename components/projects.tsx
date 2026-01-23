@@ -22,7 +22,7 @@ export default function Projects() {
           Production-grade systems with measurable impact.
         </motion.h2>
         <p className="mt-4 max-w-2xl text-base text-white/60 sm:text-lg">
-          Each project highlights architecture decisions, ML pipelines, and reliability tradeoffs from real deployments. No hand-wavy magic. Just systems that work.
+          Each project highlights architecture decisions, ML pipelines and reliability tradeoffs from real deployments. No hand wavy magic. Just systems that work.
         </p>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {projects.map((project, index) => (

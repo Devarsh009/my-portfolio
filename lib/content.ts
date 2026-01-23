@@ -29,9 +29,9 @@ export const projects: Project[] = [
     slug: "fda-maude-platform",
     title: "FDA MAUDE Data Processing Platform",
     summary:
-      "ETL platform that ingests FDA MAUDE reports, validates data quality, and powers analytics with traceable lineage.",
+      "ETL platform that ingests FDA MAUDE reports, validates data quality and powers analytics with traceable lineage.",
     problem:
-      "FDA MAUDE data arrives as noisy, irregular text with inconsistent fields. The goal was to normalize ingestion, enforce validation, and enable reliable downstream analysis.",
+      "FDA MAUDE data arrives as noisy, irregular text with inconsistent fields. The goal was to normalize ingestion, enforce validation and enable reliable downstream analysis.",
     datasetScale:
       "Millions of device event records, daily incremental updates, 50+ schema fields with strict validation rules.",
     architecture: [
@@ -43,12 +43,12 @@ export const projects: Project[] = [
     pipeline: [
       "Download → Parse → Normalize → Validate",
       "Deduplicate → Enrich → Store",
-      "Aggregate → Analytics-ready views",
+      "Aggregate → Analytics ready views",
     ],
     systemDesign: [
       "FastAPI ingestion service for control plane",
       "Celery workers for parallel ETL",
-      "Redis-backed task queue and caching",
+      "Redis backed task queue and caching",
       "PostgreSQL with partitioned tables",
     ],
     challenges: [
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     problem:
       "Teams needed accurate, auditable answers across large document sets without manual triage or brittle keyword search.",
     datasetScale:
-      "Thousands of PDFs, average 40-80 pages each, indexed for vector search and chunk-level retrieval.",
+      "Thousands of PDFs, average 40-80 pages each, indexed for vector search and chunk level retrieval.",
     architecture: [
       "Document loader → chunking → embedding pipeline",
       "Vector store retrieval + hybrid reranking",
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     slug: "finops-portal",
     title: "FinOps Cost Optimization Portal",
     summary:
-      "Analytics portal that tracks cloud spend, flags anomalies, and recommends cost-saving actions.",
+      "Analytics portal that tracks cloud spend, flags anomalies and recommends cost saving actions.",
     problem:
       "Engineering teams lacked visibility into cost spikes and underutilized resources across cloud services.",
     datasetScale:
@@ -130,7 +130,7 @@ export const projects: Project[] = [
       "ETL layer transforms billing exports",
       "Anomaly detection pipeline + rule-based alerts",
       "Dashboard API with cached aggregates",
-      "Role-based access for team reporting",
+      "Role based access for team reporting",
     ],
     pipeline: [
       "Extract billing data → Normalize → Aggregate",
@@ -144,7 +144,7 @@ export const projects: Project[] = [
       "Dockerized deployment",
     ],
     challenges: [
-      "Reducing noisy alerts for short-lived spikes",
+      "Reducing noisy alerts for short lived spikes",
       "Keeping dashboards under 200ms p95",
       "Aligning cost tags across teams",
     ],
@@ -170,33 +170,33 @@ export const researchPosts = [
     slug: "rag-optimization-playbook",
     title: "RAG Optimization Playbook",
     summary:
-      "A practical blueprint for improving retrieval quality, reranking, and source attribution in RAG systems (aka making answers stop hallucinating politely).",
+      "A practical blueprint for improving retrieval quality, reranking and source attribution in RAG systems in plain language.",
     date: "2024-12-10",
     readTime: "7 min",
     content: [
-      "RAG systems live or die by retrieval quality. I start with query analysis, then tune chunking and embeddings before touching the generator. If the retriever is bad, the generator just makes the wrong answer sound confident — which is not the vibe.",
-      "A hybrid retriever (BM25 + dense) with reranking boosts recall and precision. I prefer a lightweight cross-encoder when latency allows and fall back to score fusion when it does not.",
-      "For production, I enforce citation grounding and evaluation loops. Answer quality only improves when you track attribution coverage and feedback signals, not when you add more prompt magic.",
-      "If you’re not logging false positives, you’re just collecting nice-looking metrics. Ask me how I know.",
+      "RAG systems live or die by retrieval quality. I start with query analysis then tune chunking and embeddings before touching the generator. If the retriever is bad, the generator just makes the wrong answer sound confident. That is not the vibe.",
+      "A hybrid retriever (BM25 + dense) with reranking boosts recall and precision. I prefer a lightweight cross encoder when latency allows and fall back to score fusion when it does not.",
+      "For production, I enforce citation grounding and evaluation loops. Answer quality improves when you track attribution coverage and feedback signals, not when you add more prompt magic.",
+      "If you are not logging false positives, you are just collecting nice looking metrics. Ask me how I know.",
     ],
     bullets: [
       "Chunk by semantic boundaries, not fixed tokens.",
       "Use metadata filters to shrink the candidate pool.",
       "Rerank for high precision and cite evidence spans.",
       "Measure latency and coverage on every release.",
-      "Don’t ship without a negative set (unless you enjoy support tickets).",
+      "Do not ship without a negative set unless you enjoy support tickets.",
     ],
   },
   {
     slug: "vector-search-tradeoffs",
     title: "Vector Search Tradeoffs for Production",
     summary:
-      "How to choose between ANN libraries, index sizes, and metadata filters when latency matters and budgets are pretending to be infinite.",
+      "How to choose between ANN libraries, index sizes and metadata filters when latency matters and budgets are pretending to be infinite.",
     date: "2024-11-03",
     readTime: "6 min",
     content: [
-      "Vector search is a balance between recall, latency, and storage. Index choice and dimensionality directly impact infrastructure cost, which is a polite way of saying it can get expensive fast.",
-      "For production, I prefer offline index builds, strict metadata filtering, and incremental refreshes that avoid downtime. Live rebuilds are great until they aren’t.",
+      "Vector search is a balance between recall, latency and storage. Index choice and dimensionality directly impact infrastructure cost, which is a polite way of saying it can get expensive fast.",
+      "For production, I prefer offline index builds, strict metadata filtering and incremental refreshes that avoid downtime. Live rebuilds are great until they are not.",
       "When recall must stay high, I tune the search depth and cache hot queries aggressively to reduce median latency.",
       "If you don’t measure drift, your index will quietly get worse while everyone blames the model.",
     ],
@@ -205,18 +205,18 @@ export const researchPosts = [
       "Filter before similarity search to cut cost.",
       "Cache high-frequency queries and results.",
       "Monitor index drift and re-embed on schedule.",
-      "Don’t overfit benchmarks — your users won’t read them.",
+      "Do not overfit benchmarks because users will not read them.",
     ],
   },
   {
     slug: "scaling-fastapi-inference",
     title: "Scaling FastAPI for Inference",
     summary:
-      "Concurrency patterns, batching strategies, and caching to keep inference under 1s without setting the server on fire.",
+      "Concurrency patterns, batching strategies and caching to keep inference under 1s without setting the server on fire.",
     date: "2024-10-15",
     readTime: "5 min",
     content: [
-      "Low-latency inference depends on batching, proper async IO, and fast serialization. I treat the API as a performance-critical system — because it is.",
+      "Low latency inference depends on batching, proper async IO and fast serialization. I treat the API as a performance critical system because it is.",
       "Caching is non-negotiable for repeated queries. Redis with TTLs and request deduplication reduces p95 latency materially.",
       "I profile CPU/GPU utilization and scale horizontally using containerized workers behind a thin API gateway.",
       "Also: if you don’t cap payload sizes, someone will inevitably try to upload the internet.",
@@ -233,13 +233,13 @@ export const researchPosts = [
     slug: "evaluating-llm-reliability",
     title: "Evaluating LLM Reliability (Without the Drama)",
     summary:
-      "A framework for measuring hallucinations, attribution quality, and regressions that actually matter in production.",
+      "A framework for measuring hallucinations, attribution quality and regressions that actually matter in production.",
     date: "2025-01-05",
     readTime: "6 min",
     content: [
-      "Reliability starts with defining failure modes. I separate factual errors, source mismatches, and refusal gaps before any scoring begins.",
-      "A/B tests are useful, but only if you track error types. Otherwise you’ll ship a regression with better vibes.",
-      "Evaluation sets need real user questions, messy inputs, and adversarial cases. Synthetic prompts are fine for sanity checks — not for decisions.",
+      "Reliability starts with defining failure modes. I separate factual errors, source mismatches and refusal gaps before any scoring begins.",
+      "A/B tests are useful but only if you track error types. Otherwise you will ship a regression with better vibes.",
+      "Evaluation sets need real user questions, messy inputs and adversarial cases. Synthetic prompts are fine for sanity checks, not for decisions.",
       "If your model can’t say “I don’t know,” it will invent the rest. That’s not intelligence; that’s confidence.",
     ],
     bullets: [
@@ -251,14 +251,14 @@ export const researchPosts = [
   },
   {
     slug: "rag-guardrails",
-    title: "RAG Guardrails That Don’t Ruin UX",
+    title: "RAG Guardrails That Do Not Ruin UX",
     summary:
       "Guardrails should reduce risk without making users wait 12 seconds for a refusal.",
     date: "2024-09-02",
     readTime: "5 min",
     content: [
-      "Guardrails are a UX problem as much as a safety problem. Users don’t care why it failed — they care that it did.",
-      "I add lightweight checks: source overlap, confidence thresholds, and per-domain safety filters. Heavy policy checks happen asynchronously.",
+      "Guardrails are a UX problem as much as a safety problem. Users do not care why it failed. They care that it did.",
+      "I add lightweight checks: source overlap, confidence thresholds and per domain safety filters. Heavy policy checks happen asynchronously.",
       "If you block too aggressively, people will route around your system. If you don’t block at all, support will route around you.",
     ],
     bullets: [
@@ -274,9 +274,9 @@ export const experience = [
   {
     role: "AI Engineering Intern",
     company: "Neujin Solutions",
-    period: "Dec 2025 – Present",
+    period: "Dec 2025 to Present",
     highlights: [
-      "Built FDA MAUDE ETL pipelines with retries, validation, and structured logging.",
+      "Built FDA MAUDE ETL pipelines with retries, validation and structured logging.",
       "Designed RAG pipelines to answer compliance and safety questions with citations.",
       "Hardened ingestion with idempotent workflows and audit trails.",
     ],

@@ -3,7 +3,7 @@ import Badge from "@/components/ui/Badge";
 
 export const metadata = {
   title: "Projects | Devarsh Radadia",
-  description: "Case studies on AI systems, RAG pipelines, and ML backend platforms.",
+  description: "Case studies on AI systems, RAG pipelines and ML backend platforms.",
 };
 
 export default function ProjectsPage() {

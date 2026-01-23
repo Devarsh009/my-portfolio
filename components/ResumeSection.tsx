@@ -11,7 +11,7 @@ export default function ResumeSection() {
           <span className="text-xs uppercase tracking-[0.3em] text-white/40">ATS-ready</span>
         </div>
         <h2 className="mt-6 text-3xl font-semibold text-white sm:text-5xl">
-          Download the full resume or scan the ATS-optimized version below. Yes, it’s ATS-friendly — you’re welcome.
+          Download the full resume or scan the ATS optimized version below. Yes, it is ATS friendly. You are welcome.
         </h2>
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="glass-panel rounded-3xl p-6 text-white/70">

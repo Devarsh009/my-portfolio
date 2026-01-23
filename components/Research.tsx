@@ -18,7 +18,7 @@ export default function Research() {
           transition={{ duration: 0.8 }}
           className="mt-6 text-3xl font-semibold text-white sm:text-5xl"
         >
-          Notes on RAG quality, vector search, and inference at scale.
+          Notes on RAG quality, vector search and inference at scale.
         </motion.h2>
         <p className="mt-4 max-w-2xl text-base text-white/60 sm:text-lg">
           Written like a human who has actually debugged a pipeline at 2 AM. Sarcasm is a side effect, not the feature.

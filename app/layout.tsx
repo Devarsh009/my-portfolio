@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Devarsh Radadia | AI/ML Engineer",
   description:
-    "AI/ML engineer focused on LLM systems, RAG pipelines, and backend ML platforms.",
+    "AI/ML engineer focused on LLM systems, RAG pipelines and backend ML platforms.",
   icons: {
     icon: "/favicon.ico",
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Devarsh Radadia | AI/ML Engineer",
     description:
-      "Production-grade AI systems, RAG pipelines, and ML engineering for modern teams.",
+      "Production grade AI systems, RAG pipelines and ML engineering for modern teams.",
     url: "https://devarsh.tech",
     siteName: "Devarsh Radadia",
     images: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Devarsh Radadia — AI/ML Engineer",
+        alt: "Devarsh Radadia, AI/ML Engineer",
       },
     ],
     type: "website",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Devarsh Radadia | AI/ML Engineer",
-    description: "AI systems, RAG pipelines, and ML backend engineering.",
+    description: "AI systems, RAG pipelines and ML backend engineering.",
     images: ["/og-image.png"],
   },
 };

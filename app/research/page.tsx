@@ -3,7 +3,7 @@ import Badge from "@/components/ui/Badge";
 
 export const metadata = {
   title: "Research | Devarsh Radadia",
-  description: "LLM systems notes, RAG optimization, and FastAPI scaling.",
+  description: "LLM systems notes, RAG optimization and FastAPI scaling.",
 };
 
 export default function ResearchPage() {
@@ -12,7 +12,7 @@ export default function ResearchPage() {
       <div className="mx-auto max-w-4xl">
         <Badge>Research</Badge>
         <h1 className="mt-6 text-3xl font-semibold sm:text-5xl">Research notes</h1>
-        <p className="mt-4 text-white/70">Deep dives into RAG quality, vector search, and inference performance.</p>
+        <p className="mt-4 text-white/70">Deep dives into RAG quality, vector search and inference performance.</p>
         <div className="mt-10 grid gap-6">
           {researchPosts.map((post) => (
             <a key={post.slug} href={`/research/${post.slug}`} className="glass-panel rounded-3xl p-6">

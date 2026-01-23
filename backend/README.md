@@ -4,9 +4,9 @@ FastAPI + Postgres + Redis + Celery demo service for a lightweight document retr
 
 ## Endpoints
 - `GET /health`
-- `POST /documents` — ingest a document
-- `GET /documents` — list documents
-- `POST /query` — retrieve relevant documents with TF-IDF
+- `POST /documents` to ingest a document
+- `GET /documents` to list documents
+- `POST /query` to retrieve relevant documents with TF IDF
 
 ## Run
 Use docker-compose:

@@ -28,7 +28,7 @@ export default function Contact() {
             className="space-y-6 text-white/70"
           >
             <p className="text-lg sm:text-xl">
-              Open to AI/ML internships, research collaborations, and backend ML platform work. I respond quickly and value clarity — not 12-page requirements with no problem statement.
+              Open to AI/ML internships, research collaborations and backend ML platform work. I respond quickly and value clarity, not 12 page requirements with no problem statement.
             </p>
             <div className="grid gap-4 text-sm">
               <div className="glass-panel rounded-2xl p-4">

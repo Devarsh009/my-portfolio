@@ -42,8 +42,8 @@ export default function Hero({ id }: { id?: string }) {
           <TypingRoles />
         </div>
         <p className="mt-6 max-w-2xl text-base text-white/70 sm:text-lg">
-          I design production-grade AI systems — from FDA-scale ETL pipelines to RAG agents and ML-backed platforms that ship reliably.
-          Yes, reliability is the boring part. It’s also the part that keeps the pager silent.
+          I design production grade AI systems from FDA scale ETL pipelines to RAG agents and ML backed platforms that ship reliably.
+          Yes, reliability is the boring part. It is also the part that keeps the pager silent.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Button href="#projects">View projects</Button>
@@ -55,7 +55,7 @@ export default function Hero({ id }: { id?: string }) {
           </Button>
           <div className="flex items-center gap-2 text-xs text-white/60">
             <span className="h-2 w-2 rounded-full bg-emerald-400" />
-            Open to AI/ML internships
+            Based in India · IST
           </div>
         </div>
         <div className="mt-10">

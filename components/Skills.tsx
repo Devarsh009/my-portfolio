@@ -18,7 +18,7 @@ export default function Skills() {
           transition={{ duration: 0.8 }}
           className="mt-6 text-3xl font-semibold text-white sm:text-5xl"
         >
-          Depth across AI, data engineering, and scalable backend systems.
+          Depth across AI, data engineering and scalable backend systems.
         </motion.h2>
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           {skillsMatrix.map((group, groupIndex) => (

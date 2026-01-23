@@ -111,7 +111,7 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="mt-auto rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/70">
-                Building AI systems, RAG pipelines, and ML platforms.
+                Building AI systems, RAG pipelines and ML platforms.
               </div>
             </div>
           </motion.div>
